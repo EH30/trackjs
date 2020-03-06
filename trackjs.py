@@ -14,6 +14,9 @@ def check_system():
 
 def run_server():
     os.chdir("djserver/djsite")
+    print("[+]wait for the server to start on this window")
+    print("[+] Send the https link that should open in a new termnal/cmd")
+    print("[+] make sure your sending the https link not http\n")
     os.system("manage.py runserver 127.0.0.1:80")
 
 
