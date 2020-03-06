@@ -2,6 +2,8 @@
 
 <img src="https://github.com/EH30/trackjs/blob/master/trackjs_eample.JPG" >
 
+works on python3
+
 
 # Usage
 ---------------------------------------------------   
