@@ -15,7 +15,7 @@ def posts(request):
         if "lat" in request.POST and "lng" in request.POST:
             latitude = request.POST['lat']
             longitude = request.POST['lng']
-            data = "Latitude: {0}  Longitude {1} \n--------------------------------------".format(latitude, longitude)
+            data = "Latitude: {0}  Longitude: {1} \n--------------------------------------".format(latitude, longitude)
             print("\n[+]" + data)
             print("Location is saved on /djserver/djsite/data.txt\n")
             opnr = open("data.txt", "a+")
