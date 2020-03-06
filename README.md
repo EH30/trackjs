@@ -7,6 +7,7 @@
 ---------------------------------------------------   
 git clone https://github.com/EH30/trackjs   
 cd trackjs   
+pip install -r requirements.txt   
 python tracksjs.py   
 wait for the server to start   
 then send the https ngrok link that opened in the new cmd/terminal   
