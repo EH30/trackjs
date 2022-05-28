@@ -1,38 +1,38 @@
+#!/usr/bin/env python
 import os
 import sys
 
-
 def check_system():
     if sys.platform == "linux" or sys.platform == "linux2":
-        os.system("clear")
-        return "linux"
+        # os.system("clear")
+        return 0
     elif sys.platform == "win32":
-        os.system("cls")
-        return "win32"
+        # os.system("cls")
+        return 1
 
-
-
-def run_server():
+def run_server(os_plat):
     os.chdir("djserver/djsite")
-    print("[+] wait for the server to start on this window")
-    print("[+] Send the https link that should open in a new termnal/cmd")
-    print("[+] make sure your sending the https link not http\n")
-    os.system("manage.py runserver 127.0.0.1:80")
-
+    print("[*] Wait for the server to start on this window")
+    print("[*] Send the https link that should open in a new termnal/cmd")
+    print("[*] Make sure you're sending the https link not http\n")
+    os.system("{0} manage.py runserver 127.0.0.1:9999".format(sys.executable.split("\\")[-1]))
+    
 
 if __name__ == "__main__":
-    if check_system() == "linux":
-        output = os.system("xterm -e ngrok_linux http 80")
+    os_plat = check_system()
+
+    if os_plat == 0:
+        output = os.system("xterm -e ngrok_linux http 9999")
 
         if output >= 1:
             print("[-}Error You may need to install xterm")
         else:
-            run_server()
+            run_server(os_plat)
 
-    elif check_system() == "win32":
-        output = os.system("start call ngrok_win32.exe http 80")
+    elif os_plat == 1:
+        output = os.system("start call ngrok_win32.exe http 9999")
 
         if output >= 1:
             print("[-]Error")
         else:
-            run_server()
+            run_server(os_plat)

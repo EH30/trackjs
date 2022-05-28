@@ -4,7 +4,6 @@ from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
-
 def home(request):
     return render(request, "index_home.html")
 
@@ -19,7 +18,7 @@ def posts(request):
             print("\n[+]" + data)
             print("Location is saved on /djserver/djsite/data.txt\n")
             opnr = open("data.txt", "a+")
-            opnr.write("\n" + data + "\n")
+            opnr.write(data + "\n")
             opnr.close()
 
             return HttpResponse("Location Stored On server")
